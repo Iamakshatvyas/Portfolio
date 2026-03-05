@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshat Vyas - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 20px;
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 50px 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            background: #3b82f6;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        /* Main Content */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .left-column {
+            padding: 45px;
+            background: #f8fafc;
+        }
+
+        .right-column {
+            padding: 45px;
+            background: white;
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #3b82f6;
+            display: inline-block;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-size: 12px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+
+        .school {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+
+        .year {
+            font-size: 10px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Technical Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .skill-category-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .skill-items {
+            font-size: 9px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 8px;
+            font-weight: 600;
+        }
+
+        /* Experience */
+        .exp-item {
+            margin-bottom: 22px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .exp-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .company {
+            font-size: 11px;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .date-location {
+            font-size: 9px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .exp-description {
+            font-size: 9px;
+            color: #475569;
+            line-height: 1.7;
+            list-style: none;
+        }
+
+        .exp-description li {
+            margin-bottom: 5px;
+            margin-left: 0;
+        }
+
+        .exp-description li:before {
+            content: '▸ ';
+            color: #3b82f6;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* Projects */
+        .project-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .project-name {
+            font-size: 11px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .project-tech {
+            font-size: 8px;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .project-desc {
+            font-size: 9px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* Certifications & Achievements */
+        .cert-item {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid #3b82f6;
+            font-size: 9px;
+            color: #0c4a6e;
+            line-height: 1.5;
+        }
+
+        .cert-item strong {
+            color: #0f172a;
+        }
+
+        /* Languages */
+        .language-item {
+            margin-bottom: 12px;
+        }
+
+        .language-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .proficiency-bar {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .proficiency-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            border-radius: 3px;
+        }
+
+        .proficiency-fill.fluent {
+            width: 95%;
+        }
+
+        .proficiency-fill.proficient {
+            width: 75%;
+        }
+
+        /* Volunteer Section */
+        .volunteer-item {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid #10b981;
+            font-size: 9px;
+            color: #064e3b;
+            line-height: 1.5;
+        }
+
+        /* Achievement Badge */
+        .achievement-badge {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            border-left: 3px solid #f59e0b;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .name {
+                font-size: 32px;
+            }
+
+            .header {
+                padding: 35px;
+            }
+
+            .left-column,
+            .right-column {
+                padding: 30px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">AKSHAT VYAS</h1>
+                <p class="title">Electrical & Electronics Engineering Undergraduate</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="icon"></span>
+                        +91 8079073389
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon"></span>
+                        akshatatworkmail@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon"></span>
+                        linkedin.com/in/imakshatvyas
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Education -->
+                <div class="section">
+                    <h3 class="section-title">Education</h3>
+                    <div class="education-item">
+                        <div class="degree">B.Tech Electronics & Electrical Engineering</div>
+                        <div class="school">MBM University of Engineering and Architecture</div>
+                        <div class="year">2023 – 2027 | Jodhpur, Rajasthan</div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="section">
+                    <h3 class="section-title">Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <div class="skill-category-title">Languages</div>
+                            <div class="skill-items">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">C/C++</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-category-title">Hardware</div>
+                            <div class="skill-items">
+                                <span class="skill-tag">Arduino</span>
+                                <span class="skill-tag">Raspberry Pi 4</span>
+                                <span class="skill-tag">ESP32</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-category-title">PCB & Design</div>
+                            <div class="skill-items">
+                                <span class="skill-tag">Multisim</span>
+                                <span class="skill-tag">Circuit Design</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-category-title">Protocols</div>
+                            <div class="skill-items">
+                                <span class="skill-tag">I2C</span>
+                                <span class="skill-tag">SPI</span>
+                                <span class="skill-tag">UART</span>
+                                <span class="skill-tag">PWM</span>
+                                <span class="skill-tag">CAN Bus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="section">
+                    <h3 class="section-title">Languages</h3>
+                    <div class="language-item">
+                        <div class="language-name">English (Fluent)</div>
+                        <div class="proficiency-bar">
+                            <div class="proficiency-fill fluent"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Hindi (Fluent)</div>
+                        <div class="proficiency-bar">
+                            <div class="proficiency-fill fluent"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Volunteer Work -->
+                <div class="section">
+                    <h3 class="section-title">Volunteer Work</h3>
+                    <div class="volunteer-item">
+                        <strong>Mentored & Guided Students</strong><br>
+                        Across embedded systems, robotics, circuit design, and electronics disciplines.
+                    </div>
+                    <div class="volunteer-item">
+                        <strong>Technical Workshops</strong><br>
+                        Conducted training on Arduino, IoT, and automation systems.
+                    </div>
+                    <div class="volunteer-item">
+                        <strong>Peer Tutoring</strong><br>
+                        Supported academic excellence through knowledge sharing.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Achievements -->
+                <div class="section">
+                    <div class="achievement-badge">🏆 Top 5 IITR Hackathon</div>
+                </div>
+
+                <!-- Experience -->
+                <div class="section">
+                    <h3 class="section-title">Experience</h3>
+
+                    <div class="exp-item">
+                        <div class="job-title">Innovation Ambassador</div>
+                        <div class="company">IIC - MBM University</div>
+                        <div class="date-location">Sep 2024 – Present | Jodhpur, Rajasthan</div>
+                        <ul class="exp-description">
+                            <li>Spearhead innovation development and management initiatives</li>
+                            <li>Lead cross-functional teams in project execution</li>
+                            <li>Foster entrepreneurial mindset and innovation culture</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="job-title">Web Manager</div>
+                        <div class="company">VERO - A Merch Company</div>
+                        <div class="date-location">Feb 2025 – Present | Remote</div>
+                        <ul class="exp-description">
+                            <li>Manage website and digital presence optimization</li>
+                            <li>Oversee web development and UX/UI implementation</li>
+                            <li>Coordinate e-commerce platform operations</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="job-title">Summer Intern</div>
+                        <div class="company">Defence Research and Development Organisation (DRDO)</div>
+                        <div class="date-location">Jun 2025 – Jul 2025 | Jodhpur, Rajasthan</div>
+                        <ul class="exp-description">
+                            <li>Designed industrial automation using servo motors</li>
+                            <li>Developed precision control applications</li>
+                            <li>Worked with embedded systems and mechanical design</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="job-title">Student Member</div>
+                        <div class="company">Embedded Systems & Robotics Club</div>
+                        <div class="date-location">Jun 2024 – Jul 2024 | Jodhpur, Rajasthan</div>
+                        <ul class="exp-description">
+                            <li>Active contributor to robotics development</li>
+                            <li>Collaborated on circuit design projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="section">
+                    <h3 class="section-title">Projects</h3>
+
+                    <div class="project-item">
+                        <div class="project-name">Smart EV Charger Control System</div>
+                        <div class="project-tech">Arduino • Python • IoT • Servo Motors</div>
+                        <div class="project-desc">
+                            Developed intelligent EV charging station prototype with real-time power management, adaptive charging current regulation, and IoT connectivity for remote monitoring.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-name">Autonomous Robotics System</div>
+                        <div class="project-tech">In Development | Embedded Systems • Computer Vision</div>
+                        <div class="project-desc">
+                            Designing intelligent robotic platform with autonomous navigation, real-world industrial applications, and advanced sensor integration.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="section">
+                    <h3 class="section-title">Certifications</h3>
+
+                    <div class="cert-item">
+                        <strong>PRODUCTATHON AI</strong><br>
+                        Indian Institute of Technology, Roorkee | Jan 2025
+                    </div>
+
+                    <div class="cert-item">
+                        <strong>CreaTech 2025</strong><br>
+                        Larsen & Turbo | Feb 2025
+                    </div>
+
+                    <div class="cert-item">
+                        <strong>BrandStorm Visual Design Challenge</strong><br>
+                        IIT Roorkee | Jan 2025
+                    </div>
+
+                    <div class="cert-item">
+                        <strong>ESRC Summer Workshop</strong><br>
+                        Embedded Systems Training | MBM University
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
